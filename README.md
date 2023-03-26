@@ -12,7 +12,7 @@ In this method, I tried to solve for the points directly, using the `sympy` modu
 The program iterates through posible combinations of pre-periods and periods, and plugs those values into an equation solver. For example, a point M with the preperiod 2 and period 1, would require fc(0) iterated 2 times and fc(0) iterated 3 times to be equal. So, the expression is expanded solved, and the resulting complex point is outputted.
 
 ### Outputs
-This program outputs a csv file with the preperiod, period, and point for each point generated. I was only able to generate with a period and preperiod sum of 8 before running into roadblocks on time.
+This program outputs a csv file named `points.csv` with the preperiod, period, and point for each point generated. The rows are in the form of `k, n, a, b`. The file will not be very long; I was only able to generate with a period and preperiod sum of 8 before running into roadblocks on time.
 
 ## Method 2: 
 In this method, I decided to randomly generate points and then check to see if the point was a Misiurewicz point. 
