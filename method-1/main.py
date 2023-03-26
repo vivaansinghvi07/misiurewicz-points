@@ -3,7 +3,7 @@ from sympy import symbols, Eq, solve, I, re, im, N
 
 # set constants for the code
 MAXITER = 8                                     # the maximum depth you want to find points at
-HEADER = ["k", "n", "real_part", "imaginary_part"]    # information in the header of the csv file
+HEADER = ["k", "n", "a", "b"]    # information in the header of the csv file
 
 # generates expressions to be solved based on how long it is
 def genExpression(i):
