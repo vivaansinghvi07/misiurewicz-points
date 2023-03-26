@@ -5,7 +5,7 @@ a AND b VARIABLES REPRESENT a + bi IN A COMPLEX NUMBER
 # SETTINGS - CHANGE FOR DIFFERENT RESULTS
 MAX_N = 100             # LIMIT MAX PERIOD
 K_BOUNDS = [2, 100]     # LIMIT PREPERIOD STEPS - LOWER BOUND MUST BE AT LEAST 2 
-MNOTATIONLABEL = True  # DEFINES IF WE WANT LABELS OR NOT
+MNOTATIONLABEL = False  # DEFINES IF WE WANT LABELS OR NOT
 
 
 # different headers depending on what type of program is being run
@@ -21,6 +21,7 @@ class Complex:
 
     # defines how strcit to check for equalities
     EQUALITYSTRICTNESS = 0.0000000001
+    HASHROUNDINGDIGITS = 10
 
     # creates a new complex number a + bi
     def __init__(self, a, b):
@@ -40,7 +41,10 @@ class Complex:
     def __eq__(self, other):
         return (abs(self.a - other.a) < Complex.EQUALITYSTRICTNESS 
             and abs(self.b - other.b) < Complex.EQUALITYSTRICTNESS) 
-
+    
+    # hashes the complex number
+    def __hash__(self):
+        return int(str(hash(round(self.a, Complex.HASHROUNDINGDIGITS))) + "0000" + str(abs(hash(round(self.b, Complex.HASHROUNDINGDIGITS)))))
 
 
 import random   # for point generation
@@ -84,17 +88,16 @@ with open(f"method-2/{FILENAMELABEL if MNOTATIONLABEL else FILENAMENOLABEL}.csv"
         # creates array of values
         values = [check(iter, c) for iter in range(maximum)]
 
-        # checks if c is periodic
+        # checks if c is periodic or any values are NoneType
         skip = False
         for i in range(K_BOUNDS[0], maximum):
 
-            # skip if None
-            if not values[i]:
-                continue
-
             # if it is equal, c is periodic and we skip
-            if values[i] == c:
-                skip = True
+            try:
+                if values[i] == c:
+                    skip = True
+            except:
+                skip = True     # detects for NoneType
 
         # goes to the next generated number
         if skip:
@@ -105,31 +108,29 @@ with open(f"method-2/{FILENAMELABEL if MNOTATIONLABEL else FILENAMENOLABEL}.csv"
         if MNOTATIONLABEL:
             # checks for equality within bounds
             for i in range(K_BOUNDS[0], K_BOUNDS[1]):
-                # checks if its none
-                if not values[i]:
-                    continue
 
                 for j in range(i+1, maximum):
 
-                    # checks if no value
-                    if not values[j]:
-                        continue
-
                     # continue if there is a NoneType object in next - meaning there is no equality
-                    try:       
-                        if values[i] == values[j] and values[i-1] != values[j-1]:   # make sure they are equal only in that instance
+                    if values[i] == values[j] and values[i-1] != values[j-1]:   # make sure they are equal only in that instance
 
-                            # get parameters
-                            k = i               # determines preperiod
-                            n = j - i           # how far it went
+                        # get parameters
+                        k = i               # determines preperiod
+                        n = j - i           # how far it went
 
-                            # write to file
-                            writer.writerow([k, n, c.a, c.b])
-
-                    except: 
-                        continue
+                        # write to file
+                        writer.writerow([k, n, c.a, c.b])
+ 
 
         # we don't need the labels so it should be quicker
         else:
-            # TODO: code this
-            pass
+
+            # chops bounds off lower end 
+            values = values[K_BOUNDS[0]::]
+
+            # converts values to set
+            valuesSet = set(values)
+
+            # if the length of the set is less, that means there are equalities present - then we just add the thing to the file
+            if len(values) > len(valuesSet):
+                writer.writerow([c.a, c.b])
