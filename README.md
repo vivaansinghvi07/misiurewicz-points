@@ -24,7 +24,7 @@ In this method, I decided to randomly generate points and then check to see if t
 ### How It Works
 For each point, the program generates a series of iterates of f(z) - the function for the Mandelbrot Set - and then determines if there are equalities of any of the points. Of course, equalities involving the original point indicated that the point was periodic rather than prepeiodic, so it was scrapped. 
 
-### Parameters:
+### Parameters
 - `MAX_N`: The maximum period the program will evaluate.
 - `K_BOUNDS`: Sets the bounds for the preperiod analyses.
 - `MNOTATIONLABEL`: Determines if you want the labeled file or not
