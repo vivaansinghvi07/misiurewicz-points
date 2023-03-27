@@ -7,7 +7,6 @@ MAX_N = 100             # LIMIT MAX PERIOD
 K_BOUNDS = [2, 100]     # LIMIT PREPERIOD STEPS - LOWER BOUND MUST BE AT LEAST 2 
 MNOTATIONLABEL = False  # DEFINES IF WE WANT LABELS OR NOT
 
-
 # different headers depending on what type of program is being run
 HEADERMLABEL = ["k", "n", "a", "b"]   # preperiod, period, a + bi
 HEADER = ["a", "b"]
