@@ -18,7 +18,7 @@ The program iterates through posible combinations of pre-periods and periods, an
 ### Outputs
 This program outputs a csv file named `points.csv` with the preperiod, period, and point for each point generated. The rows are in the form of `k, n, a, b`. The file will not be very long; I was only able to generate with a period and preperiod sum of 8 before running into roadblocks on time.
 
-## Method 2: 
+## Method 2: Random Generation
 In this method, I decided to randomly generate points and then check to see if the point was a Misiurewicz point. 
 
 ### How It Works
