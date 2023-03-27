@@ -3,7 +3,7 @@ A very experimental approach to generating Misiurewicz points.
 
 ## Credits
 - This [Wikipedia Article](https://en.wikipedia.org/wiki/Misiurewicz_point), which cleared up the process for me.
-- [@easai]'s program to check if a point is a Misiurewicz point (used for checking accuracy of the program manually).
+- [@easai](https://github.com/easai/Misiurewicz)'s program to check if a point is a Misiurewicz point (used for checking accuracy of the program manually).
 
 ## Method 1: Solving Directly
 In this method, I tried to solve for the points directly, using the `sympy` module to solve equations that generate these points, but it seems to be pretty ineffecient.
