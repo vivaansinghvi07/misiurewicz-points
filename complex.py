@@ -19,6 +19,10 @@ class Complex:
         self.a += other.a
         self.b += other.b
 
+    # find magnitude
+    def mag(self):
+        return (self.a**2 + self.b**2)**0.5
+
     # check for equality
     def __eq__(self, other):
         return (abs(self.a - other.a) < Complex.EQUALITYSTRICTNESS 
