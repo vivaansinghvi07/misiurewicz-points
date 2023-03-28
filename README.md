@@ -39,3 +39,11 @@ There are two settings which the program runs in: one with labels in M(k, n) for
 If the notation is being used, you will be presented with a csv file named `points-labeled.csv` in the form of `k, n, a, b` where `k` is the preperiod, `n` is the period, and `a` & `b` are the components of the complex number `c` (`a + bi`). If this notation is used, then points will often appear many times.
 
 If the notation is not being used (set to `False`), the program will generate a csv file named `points-no-label.csv` in the form of `a, b`, only showing the components of the complex number. If this is used, points will more than likely not appear several times.
+
+## Other Programs
+
+### complex.py
+This simply stores the Complex class for complex number math.
+
+### test-border.py
+This program is meant to iterate through points in `points-no-label.csv` and determine if they lie on the border of the Mandelbrot Set. The program will output a csv named `border-points.csv`, with the same format as `points-no-label.csv`, with points on the border.
