@@ -70,7 +70,7 @@ def check(iter, c):
     return z
 
 # open the point file
-with open(f"method-2/{FILENAMELABEL if MNOTATIONLABEL else FILENAMENOLABEL}.csv", "w") as f:
+with open(f"{FILENAMELABEL if MNOTATIONLABEL else FILENAMENOLABEL}.csv", "w") as f:
 
     # initialize writer and write header if just beginning
     writer = csv.writer(f)
