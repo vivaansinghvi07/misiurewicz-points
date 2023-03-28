@@ -4,6 +4,7 @@ from complex import Complex     # for complex math
 # defines name of file being looked at
 FILENAME = "points-no-label"    # THIS IS THE ONLY THING SUPPORTED FOR NOW
 CHECKDEPTH = 1000
+BORDERSTRICTNESS = 1.9
 
 # performs check - returns new complex number
 def check(depth, c):
@@ -36,6 +37,6 @@ with open(f"{FILENAME}.csv", "r") as inp:
             c = Complex(float(point["a"]), float(point["b"]))
 
             # runs border check
-            if check(depth=CHECKDEPTH, c=c) > 1.5:
+            if check(depth=CHECKDEPTH, c=c) > BORDERSTRICTNESS:
                 writer.writerow([point["a"], point["b"]])
             
