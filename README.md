@@ -6,10 +6,10 @@ A very experimental approach to generating Misiurewicz points.
 - [@easai](https://github.com/easai/Misiurewicz)'s program to check if a point is a Misiurewicz point (used for checking accuracy of the program manually).
 
 ## Method 1: Solving Directly
-In this method, I tried to solve for the points directly, using the `sympy` module to solve equations that generate these points, but it seems to be pretty ineffecient.
+In this method, I tried to solve for the points directly, using the `sympy` module to solve equations that generate these points, but it seems to be pretty ineffecient. It also may be inaccurate due to possibly showing periodic rather than pre-periodic orbits.
 
 ### How It Works 
-The program iterates through posible combinations of pre-periods and periods, and plugs those values into an equation solver. For example, a point M with the preperiod 2 and period 1, would require fc(0) iterated 2 times and fc(0) iterated 3 times to be equal. So, the expression is expanded solved, and the resulting complex point is outputted.
+The program iterates through possible combinations of pre-periods and periods, and plugs those values into an equation solver. For example, a point M with the preperiod 2 and period 1, would require fc(0) iterated 2 times and fc(0) iterated 3 times to be equal. So, the expression is expanded solved, and the resulting complex point is outputted.
 
 ### Parameters
 - `MAXITER`: Determines the maxmimum sum of preperiod and period which the program will iterate through. 

@@ -72,7 +72,6 @@ with open(f"{FILENAMELABEL if MNOTATIONLABEL else FILENAMENOLABEL}.csv", "w") as
         if skip:
             continue
 
-
         # we need labels so we need to check individual equalitie 
         if MNOTATIONLABEL:
             # checks for equality within bounds
